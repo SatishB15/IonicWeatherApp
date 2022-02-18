@@ -1,0 +1,19 @@
+$color: #7536eb;
+.colorRow {
+  border: 2px solid $color;
+  --background: $color;
+  border-radius: 20px;
+}
+ion-item {
+  --border-color: purple;
+}
+ion-card {
+  * {
+    color: $color;
+  }
+  border: 3px solid $color;
+}
+.temp {
+  font-size: 40px;
+  margin-top: 30px;
+}
