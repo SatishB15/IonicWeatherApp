@@ -23,9 +23,11 @@ export class CurrentWeatherPage implements OnInit {
     this.menu.enable(true, 'menu');
     this.menu.open('menu');
   }
+
   closeMenu() {
     this.menu.close('menu');
   }
+
   toggleTheme(event) {
     if (event.detail.checked) {
       document.body.setAttribute('color-theme', 'dark');
@@ -35,17 +37,19 @@ export class CurrentWeatherPage implements OnInit {
   }
 
   async ngOnInit() {
+    this.loadingService.startLoader();
     this.forecastService
       .getForecastData()
       .subscribe((apiResponse: ForecastData) => {
         this.forecastData = apiResponse;
         this.loadingService.dismissLoader();
       });
-    this.loadingService.startLoader();
   }
+
   showTemprature() {
     return Math.round(this.forecastData.daily[0].temp.day - 273);
   }
+
   IconSource() {
     return `${environment.ICON_URL}${this.forecastData.daily[0].weather[0].icon}@2x.png`;
   }

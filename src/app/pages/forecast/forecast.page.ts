@@ -9,19 +9,23 @@ import { LoadingService } from 'src/app/services/loading.service';
   styleUrls: ['./forecast.page.scss'],
 })
 export class ForecastPage implements OnInit {
+  dailyData: DailyForecastData[];
+
   constructor(
     private forecastService: ForecastService,
     private loadingService: LoadingService
   ) {}
 
-  dailyData: DailyForecastData[];
-
   async ngOnInit() {
-    this.forecastService.getForecastData().subscribe((apiResponse) => {
-      this.dailyData = apiResponse.daily;
-      console.log(this.dailyData);
-      this.loadingService.dismissLoader();
-    });
     this.loadingService.startLoader();
+    this.forecastService.getForecastData().subscribe(
+      (apiResponse) => {
+        this.dailyData = apiResponse.daily;
+        console.log(this.dailyData);
+      },
+      (error) => {
+        this.loadingService.dismissLoader();
+      }
+    );
   }
 }

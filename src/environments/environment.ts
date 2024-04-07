@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   API_URL:
-    'https://api.openweathermap.org/data/2.5/onecall?lat=20.5937&lon=78.9629&exclude=current,minutely,hourly&appid=',
-  API_KEY: '2d859f3d30535a229e336025bf6a2e88',
+    'https://api.openweathermap.org/data/2.5/weather?lat=20.5937&lon=78.9629&exclude=current,minutely,hourly&appid=',
+  API_KEY: '3dbc45dc78eda6ccf7a1994bc5903205',
   ICON_URL: 'https://openweathermap.org/img/wn/',
 };
 
