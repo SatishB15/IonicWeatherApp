@@ -8,13 +8,6 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'forecast',
-    loadChildren: () =>
-      import('./pages/forecast/forecast.module').then(
-        (m) => m.ForecastPageModule
-      ),
-  },
-  {
     path: 'current-weather',
     loadChildren: () =>
       import('./pages/current-weather/current-weather.module').then(

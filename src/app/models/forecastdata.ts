@@ -1,47 +1,54 @@
 export interface ForecastData {
-  lat: number;
-  lon: number;
-  timezone: string;
-  timezone_offset: number;
-  daily: DailyForecastData[];
-}
-export interface DailyForecastData {
+  coord: Coord;
+  weather: Weather[];
+  base: string;
+  main: Main;
+  visibility: number;
+  wind: Wind;
+  clouds: Clouds;
   dt: number;
-  sunrise: number;
-  sunset: number;
-  moonrise: number;
-  moonset: number;
-  moon_phase: number;
-  temp: Temp;
-  feels_like: FeelsLike;
-  pressure: number;
-  humidity: number;
-  dew_point: number;
-  wind_speed: number;
-  wind_deg: number;
-  wind_gust: number;
-  weather: WeatherEntity[];
-  clouds: number;
-  pop: number;
-  uvi: number;
+  sys: Sys;
+  timezone: number;
+  id: number;
+  name: string;
+  cod: number;
 }
-export interface Temp {
-  day: number;
-  min: number;
-  max: number;
-  night: number;
-  eve: number;
-  morn: number;
+
+export interface Coord {
+  lon: number;
+  lat: number;
 }
-export interface FeelsLike {
-  day: number;
-  night: number;
-  eve: number;
-  morn: number;
-}
-export interface WeatherEntity {
+
+export interface Weather {
   id: number;
   main: string;
   description: string;
   icon: string;
+}
+
+export interface Main {
+  temp: number;
+  feels_like: number;
+  temp_min: number;
+  temp_max: number;
+  pressure: number;
+  humidity: number;
+  sea_level: number;
+  grnd_level: number;
+}
+
+export interface Wind {
+  speed: number;
+  deg: number;
+  gust: number;
+}
+
+export interface Clouds {
+  all: number;
+}
+
+export interface Sys {
+  country: string;
+  sunrise: number;
+  sunset: number;
 }

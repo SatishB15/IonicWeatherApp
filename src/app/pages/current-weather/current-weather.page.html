@@ -13,10 +13,6 @@
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item button (click)="closeMenu()" href="forecast">
-        <ion-label>Forecast</ion-label>
-        <ion-icon name="rainy"></ion-icon>
-      </ion-item>
       <ion-item>
         <ion-label>Dark Mode</ion-label>
         <ion-toggle (ionChange)="toggleTheme($event)"></ion-toggle>
@@ -31,12 +27,12 @@
     <ion-card class="ion-text-center">
       <ion-card-header>
         <ion-card-subtitle>current weather</ion-card-subtitle>
-        <ion-card-title>{{forecastData.timezone}}</ion-card-title>
+        <ion-card-title>{{forecastData.name}}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <ion-row class="colorRow">
           <ion-col>
-            <img src="{{IconSource()}}" alt="" />
+            <img src="{{IconSource()}}" alt="weather-icon" />
           </ion-col>
           <ion-col>
             <div class="temp">
@@ -51,15 +47,13 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-card-title>{{forecastData.daily[0].humidity}}</ion-card-title>
+            <ion-card-title>{{forecastData.main.humidity}}</ion-card-title>
           </ion-col>
           <ion-col>
-            <ion-card-title>{{forecastData.daily[0].pressure}}</ion-card-title>
+            <ion-card-title>{{forecastData.main.pressure}}</ion-card-title>
           </ion-col>
           <ion-col>
-            <ion-card-title
-              >{{forecastData.daily[0].wind_speed}}</ion-card-title
-            >
+            <ion-card-title>{{forecastData.wind.speed}}</ion-card-title>
           </ion-col>
         </ion-row>
       </ion-card-content>

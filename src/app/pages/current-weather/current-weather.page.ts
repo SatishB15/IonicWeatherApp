@@ -47,10 +47,10 @@ export class CurrentWeatherPage implements OnInit {
   }
 
   showTemprature() {
-    return Math.round(this.forecastData.daily[0].temp.day - 273);
+    return Math.round(this.forecastData.main.temp - 273);
   }
 
   IconSource() {
-    return `${environment.ICON_URL}${this.forecastData.daily[0].weather[0].icon}@2x.png`;
+    return `${environment.ICON_URL}${this.forecastData.weather[0].icon}@2x.png`;
   }
 }
